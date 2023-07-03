@@ -29,3 +29,7 @@
     8- useVisibleTask$
 
     9- Redirecciones
+
+    10- Importación de estilos css
+        -  useStylesScoped$(styles)
+        -  useStyles$(styles);

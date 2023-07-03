@@ -1,4 +1,9 @@
-import { component$, Slot, useStyles$ } from "@builder.io/qwik";
+import {
+  component$,
+  Slot,
+  useStyles$,
+  useStylesScoped$,
+} from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import Navbar from "~/components/shared/navbar/navbar";
 
@@ -16,6 +21,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
+  useStylesScoped$(styles);
   useStyles$(styles);
   return (
     <>

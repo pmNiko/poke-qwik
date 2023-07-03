@@ -77,3 +77,7 @@ body {
 .btn:disabled {
   @apply bg-gray-800;
 }
+
+.custom-navlink {
+  @apply cursor-pointer;
+}
