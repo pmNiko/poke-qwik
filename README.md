@@ -33,3 +33,16 @@
     10- Importación de estilos css
         -  useStylesScoped$(styles)
         -  useStyles$(styles);
+
+## Conceptos de la sección 4
+
+    1- Context API
+        - useContextProvider
+        - createContextID
+        - useContext
+
+    2- Comunicar componentes hermanos
+
+    3- Mantener información en el local storage
+
+    4- Leer y recargar del local storage
