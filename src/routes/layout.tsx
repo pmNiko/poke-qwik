@@ -1,12 +1,20 @@
 import {
   component$,
   Slot,
+  useContextProvider,
+  useStore,
   useStyles$,
   useStylesScoped$,
 } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import Navbar from "~/components/shared/navbar/navbar";
 
+import {
+  PokemonGameContext,
+  PokemonGameState,
+  PokemonListContext,
+  PokemonListState,
+} from "~/context";
 import styles from "./styles.css?inline";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
@@ -23,6 +31,23 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   useStylesScoped$(styles);
   useStyles$(styles);
+
+  const pokemonGame = useStore<PokemonGameState>({
+    pokemonId: 4,
+    isPokemonVisible: true,
+    showBackImage: false,
+  });
+
+  const pokemonList = useStore<PokemonListState>({
+    currentPage: 0,
+    isLoading: false,
+    pokemons: [],
+    isFinalPage: false,
+  });
+
+  useContextProvider(PokemonGameContext, pokemonGame);
+  useContextProvider(PokemonListContext, pokemonList);
+
   return (
     <>
       <Navbar />

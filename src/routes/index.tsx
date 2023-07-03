@@ -1,41 +1,46 @@
-import { $, component$, useSignal } from "@builder.io/qwik";
+import { $, component$, useSignal, useContext } from "@builder.io/qwik";
 import { useNavigate, type DocumentHead } from "@builder.io/qwik-city";
 import { PokemonImage } from "~/components/pokemon/pokemon-image";
+import { PokemonGameContext } from "~/context";
 
 export default component$(() => {
   const nav = useNavigate();
-  const pokemonId = useSignal(1); // primitivos
-  const showBackImage = useSignal(false);
-  const isPokemonVisible = useSignal(true);
+
+  const pokemonGame = useContext(PokemonGameContext);
+
+  /** Se reemplazan por el context */
+  // const pokemonId = useSignal(1); // primitivos
+  // const showBackImage = useSignal(false);
+  // const isPokemonVisible = useSignal(true);
 
   const changePokemonId = $((value: number) => {
-    if (pokemonId.value + value <= 0) return;
+    if (pokemonGame.pokemonId + value <= 0) return;
 
-    pokemonId.value += value;
+    pokemonGame.pokemonId += value;
   });
 
-  const goToPokemon = $(() => nav(`/pokemon/${pokemonId.value}`));
+  const goToPokemon = $(() => nav(`/pokemon/${pokemonGame.pokemonId}`));
 
   const toggleShowBackImage = $(
-    () => (showBackImage.value = !showBackImage.value)
+    () => (pokemonGame.showBackImage = !pokemonGame.showBackImage)
   );
 
   const toggleVisible = $(
-    () => (isPokemonVisible.value = !isPokemonVisible.value)
+    () => (pokemonGame.isPokemonVisible = !pokemonGame.isPokemonVisible)
   );
 
   return (
     <>
       <span class="text-2xl">Buscador simple</span>
 
-      <span class="text-9xl"> {pokemonId} </span>
+      <span class="text-9xl"> {pokemonGame.pokemonId} </span>
 
       {/* <Link href={`/pokemon/${pokemonId.value}/`}> */}
       <div onClick$={goToPokemon} class="custom-navlink">
         <PokemonImage
-          id={pokemonId.value}
-          backImage={showBackImage.value}
-          isVisible={isPokemonVisible.value}
+          id={pokemonGame.pokemonId}
+          backImage={pokemonGame.showBackImage}
+          isVisible={pokemonGame.isPokemonVisible}
         />
       </div>
       {/* </Link> */}

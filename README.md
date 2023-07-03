@@ -37,8 +37,8 @@
 ## Conceptos de la sección 4
 
     1- Context API
+        - createContextID (Creación del contexto con el ID único)
         - useContextProvider
-        - createContextID
         - useContext
 
     2- Comunicar componentes hermanos
