@@ -46,3 +46,8 @@
     3- Mantener información en el local storage
 
     4- Leer y recargar del local storage
+
+## Conceptos de la sección 5
+
+    Esta sección está enfocada en la reutilización de código.
+    Para esto vamos a hacer uso de la creación de custom-hooks.
