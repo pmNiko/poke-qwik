@@ -38,8 +38,8 @@
 
     1- Context API
         - createContextID (Creación del contexto con el ID único)
-        - useContextProvider
-        - useContext
+        - useContextProvider (Generar un Provider - Component HOC)
+        - useContext (Utilización del contexto)
 
     2- Comunicar componentes hermanos
 
