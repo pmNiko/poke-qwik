@@ -60,3 +60,15 @@
         a. Serialización de funciones
         b. Propiedades computadas - Read Only
         c. Reutilización del custom hook
+
+## Conceptos de la sección 6
+
+    Esta sección está enfocada en la proyección de Qwik.
+
+    1- Slots
+
+    2- NameSlots
+
+    3- Modals
+
+    4- Integraciones con OpenAI
