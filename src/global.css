@@ -74,6 +74,13 @@ body {
   @apply bg-purple-700;
 }
 
+.btn-home {
+  @apply bg-blue-600 text-white text-xs;
+}
+.btn-home:hover {
+  @apply bg-blue-700;
+}
+
 .btn:disabled {
   @apply bg-gray-800;
 }
