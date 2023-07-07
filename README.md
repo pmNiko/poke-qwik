@@ -72,5 +72,29 @@
     3- Modals
 
     4- Integraciones con OpenAI
-       - [openAI](https://platform.openai.com/account/api-keys)
-       - Colocar la API_KEY en un .env
+
+[openAI](https://platform.openai.com/account/api-keys)
+
+- Colocar la API_KEY en un .env
+
+---
+
+<br/>
+
+## Conceptos de la sección 7
+
+    1- Realizar posteos de información
+
+    2- Acciones - routeActions
+
+    3- Validaciones de formularios
+
+    4- Cambiar la estructura de rutas
+
+    5- Layouts anidados
+
+    6- Redirecciones
+
+    7- Cookies
+
+    8- Protección de rutas
