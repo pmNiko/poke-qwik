@@ -13,7 +13,7 @@ export default component$(() => {
     <>
       <span class="text-2xl">Buscador simple</span>
 
-      <span class="text-9xl"> {pokemon.id} </span>
+      <span class="text-9xl"> {pokemon.id.value} </span>
 
       <div onClick$={goToPokemon} class="custom-navlink">
         <PokemonImage

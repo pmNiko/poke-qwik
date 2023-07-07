@@ -72,3 +72,5 @@
     3- Modals
 
     4- Integraciones con OpenAI
+       - [openAI](https://platform.openai.com/account/api-keys)
+       - Colocar la API_KEY en un .env

@@ -13,9 +13,7 @@ interface Props {
 
 export const PokemonImage = component$(
   ({ id, size = 200, backImage = false, isVisible = true }: Props) => {
-    const imageLoading = useSignal(true);
-
-    // const back = backImage ? "back/" : "";
+    const imageLoading = useSignal(false);
 
     useTask$(({ track }) => {
       track(() => id);
@@ -26,6 +24,8 @@ export const PokemonImage = component$(
     const back = useComputed$(() => {
       return backImage ? "back/" : "";
     });
+
+    if (!id) return <></>;
 
     return (
       <div
