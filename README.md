@@ -11,6 +11,13 @@
     4- Cambiar la estructura de rutas
 
     5- Layouts anidados
+        - Layout-root
+            -> routes/
+                -> layout
+                    ->  Slot
+                (directory)
+                    -> layout
+                    -> index.ts
 
     6- Redirecciones
 
