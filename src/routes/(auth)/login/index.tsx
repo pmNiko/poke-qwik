@@ -1,5 +1,5 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
-import { Form, routeAction$ } from "@builder.io/qwik-city";
+import { Form, routeAction$, zod$, z } from "@builder.io/qwik-city";
 
 import styles from "./login.css?inline";
 import { randomUUID } from "crypto";
@@ -9,23 +9,22 @@ const hardcodeUserData = {
   password: "nikolas",
 };
 
-export const useLoginUserAction = routeAction$((data, { cookie, redirect }) => {
-  if (JSON.stringify(data) === JSON.stringify(hardcodeUserData)) {
-    const jwt = randomUUID().replaceAll("-", "tk_");
-    cookie.set("jwt", jwt, { secure: true, path: "/" });
+export const useLoginUserAction = routeAction$(
+  (data, { cookie, redirect }) => {
+    if (JSON.stringify(data) === JSON.stringify(hardcodeUserData)) {
+      const jwt = randomUUID().replaceAll("-", "tk_");
+      cookie.set("jwt", jwt, { secure: true, path: "/" });
 
-    redirect(302, "/");
+      redirect(302, "/");
+    }
 
-    // return {
-    //   success: true,
-    //   jwt,
-    // };
-  }
-
-  return {
-    success: false,
-  };
-});
+    return { success: false };
+  },
+  zod$({
+    email: z.string().email("Formato no válido!"),
+    password: z.string().min(6, "Minimo de 6 caracteres!"),
+  })
+);
 
 export default component$(() => {
   useStylesScoped$(styles);
@@ -52,7 +51,7 @@ export default component$(() => {
         )}
       </p> */}
 
-      <code>{JSON.stringify(action.status, undefined, 2)}</code>
+      <code>{JSON.stringify(action.value, undefined, 2)}</code>
     </Form>
   );
 });
