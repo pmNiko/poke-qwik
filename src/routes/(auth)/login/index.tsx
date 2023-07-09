@@ -5,8 +5,8 @@ import styles from "./login.css?inline";
 import { randomUUID } from "crypto";
 
 const hardcodeUserData = {
-  email: "martin.panebianco@smandes.gob.ar",
-  password: "nikolas",
+  email: "nikodev@example.com",
+  password: "mipassword",
 };
 
 export const useLoginUserAction = routeAction$(
@@ -45,11 +45,11 @@ export default component$(() => {
         <button type="submit">Ingresar</button>
       </div>
 
-      {/* <p>
-        {action.value?.success && (
-          <code>Autenticado con token: {action.value.jwt}</code>
-        )}
-      </p> */}
+      <div class="mt-10">
+        <pre class="text-xs text-green-700">
+          {JSON.stringify(hardcodeUserData)}
+        </pre>
+      </div>
 
       <code>{JSON.stringify(action.value, undefined, 2)}</code>
     </Form>
